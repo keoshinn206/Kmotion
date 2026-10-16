@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K Motion — Seng Keo, Motion Designer</title>
+<meta name="description" content="Seng Keo — Motion Designer for SaaS, AI, tech and brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101010;--tx:#F5F5F5;--mu:#999;--ac:#FF6B35;--gl:rgba(255,255,255,.07);--gb:rgba(255,255,255,.16);--r:22px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 Sora,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+/* liquid background */
+.blobs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blobs i{position:absolute;width:46vmax;height:46vmax;border-radius:50%;filter:blur(90px);opacity:.28;animation:drift 22s ease-in-out infinite alternate}
+.blobs i:nth-child(1){background:#FF6B35;top:-18vmax;left:-12vmax}
+.blobs i:nth-child(2){background:#5b4bff;bottom:-20vmax;right:-14vmax;animation-delay:-8s;opacity:.2}
+.blobs i:nth-child(3){background:#ff3d81;top:40%;left:45%;width:28vmax;height:28vmax;opacity:.12;animation-delay:-14s}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+/* glass */
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid var(--gb);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),inset 0 -1px 0 rgba(255,255,255,.04),0 12px 40px rgba(0,0,0,.35)}
+/* nav */
+nav{position:fixed;top:14px;left:0;right:0;z-index:50}
+nav .in{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:10px 12px 10px 22px;border-radius:999px;width:calc(100% - 28px)}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.02em}.logo b{color:var(--ac)}
+nav ul{display:flex;gap:4px;list-style:none;padding:0}
+nav ul a{display:block;padding:8px 18px;border-radius:999px;color:var(--mu);font-size:14px;transition:.25s}
+nav ul a:hover,nav ul a.on{color:var(--tx);background:rgba(255,255,255,.1)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .25s,box-shadow .25s,background .25s}
+.btn.p{background:var(--ac);color:#111;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 8px 28px rgba(255,107,53,.35)}
+.btn.p:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 12px 36px rgba(255,107,53,.5)}
+.btn.g:hover{transform:translateY(-2px);background:rgba(255,255,255,.14)}
+/* hero */
+.hero{padding:150px 0 40px}
+.hero .row{display:flex;align-items:center;gap:56px;justify-content:space-between}
+.avail{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;font-size:13px;color:#ddd;margin-bottom:26px}
+.avail s{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+h1{font-size:clamp(40px,6.4vw,84px);line-height:1.02;letter-spacing:-.04em;font-weight:800;max-width:11ch}
+.hero p.sub{color:var(--mu);max-width:50ch;margin:24px 0 32px;font-size:17px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.me{flex:none;text-align:center}
+.avatar{width:min(300px,34vw);aspect-ratio:1;border-radius:50%;padding:8px;position:relative;animation:float 6s ease-in-out infinite}
+.avatar img,.avatar .ph{width:100%;height:100%;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:#1c1c1c;font-weight:800;font-size:56px;color:var(--ac)}
+@keyframes float{50%{transform:translateY(-12px)}}
+.me strong{display:block;margin-top:18px;font-size:20px}.me span{color:var(--mu);font-size:14px}
+/* train marquee */
+.train{overflow:hidden;margin:56px 0 0;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:12px;width:max-content;animation:run 38s linear infinite}
+.train:hover .track{animation-play-state:paused}
+@keyframes run{to{transform:translateX(-50%)}}
+.pill{white-space:nowrap;padding:11px 22px;border-radius:999px;border:1px solid var(--gb);background:rgba(255,255,255,.05);backdrop-filter:blur(10px);font-size:14px;transition:.25s}
+.pill:hover{border-color:var(--ac);color:var(--ac)}
+/* sections */
+section{padding:90px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.03em;line-height:1.1}
+.head p{color:var(--mu);margin-top:8px}
+.tabs{display:inline-flex;padding:5px;border-radius:999px;gap:4px;position:relative}
+.tabs button{position:relative;z-index:1;padding:10px 22px;border-radius:999px;font-size:14px;color:var(--mu);transition:.25s;text-align:center;line-height:1.25}
+.tabs button small{display:block;font-size:11px;opacity:.7}
+.tabs button.on{color:#111;background:var(--ac);box-shadow:0 4px 18px rgba(255,107,53,.4)}
+.panel{display:none}.panel.on{display:grid;animation:in .5s ease}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+.grid{grid-template-columns:repeat(2,1fr);gap:28px}
+.grid.ph{grid-template-columns:repeat(auto-fit,minmax(240px,300px));justify-content:center;gap:40px}
+/* cards */
+.card{border-radius:var(--r);padding:10px;cursor:pointer;position:relative;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s;text-align:left;display:block;width:100%}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(255,107,53,.18),transparent 60%);opacity:0;transition:.3s;pointer-events:none}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,107,53,.5)}.card:hover::before{opacity:1}
+.media{position:relative;aspect-ratio:16/9;border-radius:calc(var(--r) - 8px);overflow:hidden;background:#000}
+.media video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.card:hover .media video{transform:scale(1.04)}
+.live{position:absolute;top:12px;left:12px;padding:5px 11px;border-radius:999px;font-size:11px;font-weight:600;display:flex;gap:7px;align-items:center}
+.live s{width:6px;height:6px;border-radius:50%;background:var(--ac);animation:pulse 2s infinite}
+.over{position:absolute;inset:0;display:grid;place-items:center;background:rgba(10,10,10,.35);opacity:0;transition:opacity .3s}
+.over span{display:inline-flex;gap:10px;align-items:center;padding:13px 24px;border-radius:999px;font-weight:600;font-size:14px;transform:translateY(10px) scale(.96);transition:.35s cubic-bezier(.2,.8,.2,1)}
+.card:hover .over,.card:focus-visible .over{opacity:1}.card:hover .over span{transform:none}
+@media(hover:none){.over{opacity:1;background:linear-gradient(transparent 60%,rgba(0,0,0,.55));place-items:end center;padding-bottom:12px}.over span{transform:none;padding:9px 18px}}
+.meta{padding:16px 10px 8px}
+.meta h3{font-size:19px;letter-spacing:-.02em}.meta p{color:var(--mu);font-size:14px;margin-top:2px}
+.meta em{font-style:normal;display:inline-block;margin-top:10px;font-size:12px;color:var(--ac);border:1px solid rgba(255,107,53,.4);padding:3px 11px;border-radius:999px}
+/* phone frame */
+.phone .media{aspect-ratio:9/19;border-radius:34px;border:9px solid #000;box-shadow:0 0 0 2px #333;margin:6px 10px 0}
+.phone .media::after{content:"";position:absolute;top:8px;left:50%;width:34%;height:20px;background:#000;border-radius:20px;transform:translateX(-50%);z-index:2}
+.phone .media video{object-fit:cover}
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(8,8,8,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;transition:opacity .3s}
+.modal.open{display:flex}.modal.show{opacity:1}
+.mbox{width:min(1100px,100%);max-height:100%;overflow:auto;border-radius:28px;padding:18px;transform:translateY(24px) scale(.97);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.modal.show .mbox{transform:none}
+.mtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px}
+.back{display:inline-flex;gap:10px;align-items:center;padding:10px 18px;border-radius:999px;font-size:14px;transition:.25s}.back:hover{background:rgba(255,255,255,.16);transform:translateX(-3px)}
+.mcount{color:var(--mu);font-size:13px}
+.mplayer{border-radius:18px;overflow:hidden;background:#000;display:flex;justify-content:center}
+.mplayer video{display:block;width:100%;max-height:68vh;background:#000}
+.mplayer.vert video{width:auto;max-width:100%;max-height:68vh}
+.minfo{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;padding:20px 8px 6px}
+.minfo h3{font-size:26px;letter-spacing:-.02em}.minfo p{color:var(--mu)}
+.nextb{display:flex;gap:14px;align-items:center;padding:8px 8px 8px 18px;border-radius:999px;transition:.25s;text-align:left}.nextb:hover{background:rgba(255,255,255,.16);transform:translateX(3px)}
+.nextb small{display:block;color:var(--mu);font-size:11px}.nextb b{font-size:14px;font-weight:600}
+.nextb img{width:64px;height:40px;object-fit:cover;border-radius:999px}
+/* about */
+.about{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center;padding:36px;border-radius:32px}
+.about .avatar{width:100%;animation:none}
+.about p{color:#ccc;font-size:18px;margin-bottom:16px;max-width:56ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 28px}
+.tools{display:flex;gap:14px;flex-wrap:wrap}
+.tool{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;transition:transform .3s;position:relative}
+.tool:hover{transform:translateY(-6px) rotate(-4deg)}
+.tool svg{width:36px;height:36px}
+.tool::after{content:attr(data-n);position:absolute;bottom:-26px;font-size:11px;color:var(--mu);opacity:0;transition:.25s}.tool:hover::after{opacity:1}
+/* contact */
+.contact{text-align:center;padding:64px 28px;border-radius:36px;display:grid;grid-template-columns:1fr auto;gap:40px;text-align:left;align-items:center}
+.contact h2{margin-bottom:10px}.contact p{color:var(--mu);margin-bottom:28px}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.mail{margin-top:22px;font-size:14px;color:var(--mu)}.mail a{color:var(--tx);border-bottom:1px solid var(--ac)}
+.qr{width:220px;text-align:center;font-size:12px;color:var(--mu)}
+.qr .box{width:220px;height:220px;border-radius:24px;background:#fff;padding:12px;display:grid;place-items:center;margin-bottom:10px;overflow:hidden}
+.qr img{width:100%;height:100%;object-fit:contain}
+.qr .box div{color:#333;font-size:12px}
+footer{padding:36px 0 50px;color:var(--mu);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer a:hover{color:var(--ac)}.fl{display:flex;gap:22px}
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+ .hero{padding-top:120px}.hero .row{flex-direction:column-reverse;align-items:flex-start;gap:30px}.avatar{width:150px}.me{display:flex;gap:16px;align-items:center;text-align:left}.me strong{margin:0}
+ .grid{grid-template-columns:1fr}.about{grid-template-columns:1fr;padding:24px;gap:28px}.about .avatar{width:180px}
+ .contact{grid-template-columns:1fr;padding:36px 22px}.nextb img{display:none}
+ nav ul a{padding:8px 11px}.logo span{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blobs"><i></i><i></i><i></i></div>
+
+<nav><div class="in glass">
+  <a href="#top" class="logo">K<b> Motion</b></a>
+  <ul><li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="row">
+    <div>
+      <div class="avail glass"><s></s>Available for projects</div>
+      <h1>Motion That Makes Ideas Move.</h1>
+      <p class="sub">I create motion design, UI animations, SaaS explainers, and product visuals that communicate ideas clearly.</p>
+      <div class="cta"><a class="btn p" href="#work">Explore my work</a><a class="btn g glass" href="#contact">Contact me</a></div>
+    </div>
+    <div class="me">
+      <div class="avatar glass"><img src="profile.jpg" alt="Seng Keo" onerror="this.outerHTML='<div class=ph>SK</div>'"></div>
+      <div><strong>Seng Keo</strong><span>Motion Designer</span></div>
+    </div>
+  </div>
+  <div class="train" aria-label="Services"><div class="track" id="train"></div></div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <div class="head rv">
+    <div><h2>Selected work</h2><p>Live previews. Hover a project, then open it full size.</p></div>
+    <div class="tabs glass" role="tablist">
+      <button class="on" role="tab" data-tab="desktop">Desktop<small>1920 × 1080</small></button>
+      <button role="tab" data-tab="phone">Phone<small>1080 × 1920</small></button>
+    </div>
+  </div>
+  <div class="panel grid on" id="p-desktop"></div>
+  <div class="panel grid ph" id="p-phone"></div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="about glass rv">
+    <div class="avatar glass"><img src="profile.jpg" alt="Seng Keo" onerror="this.outerHTML='<div class=ph>SK</div>'"></div>
+    <div>
+      <h2 style="margin-bottom:20px">About me</h2>
+      <p>I’m a Motion Designer focused on transforming ideas, interfaces, and products into clear and engaging visual experiences.</p>
+      <p>I create modern and professional visuals for SaaS, AI, tech, brands, and digital products.</p>
+      <div class="chips" id="chips"></div>
+      <div class="tools" id="tools"></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact glass rv">
+    <div>
+      <h2>Have a project in mind?</h2>
+      <p>Let’s create something that moves people.</p>
+      <div class="links">
+        <a class="btn p" href="https://wa.me/855963788662" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn g glass" href="mailto:keoseng56@gmail.com">Email</a>
+        <a class="btn g glass" href="https://dribbble.com/ShinJ" target="_blank" rel="noopener">Dribbble</a>
+        <a class="btn g glass" href="https://www.upwork.com/freelancers/~011bb5a6018adb891a?mp_source=share" target="_blank" rel="noopener">Upwork</a>
+      </div>
+      <div class="mail">Seng Keo · <a href="mailto:keoseng56@gmail.com">keoseng56@gmail.com</a></div>
+    </div>
+    <div class="qr"><div class="box"><img src="qr.png" alt="WhatsApp QR code" onerror="this.outerHTML='<div>Add qr.png</div>'"></div>Scan to chat on WhatsApp</div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© <span id="yr"></span> Seng Keo — K Motion</span>
+  <div class="fl"><a href="https://dribbble.com/ShinJ" target="_blank" rel="noopener">Dribbble</a><a href="https://www.upwork.com/freelancers/~011bb5a6018adb891a?mp_source=share" target="_blank" rel="noopener">Upwork</a><a href="#top">Back to top</a></div>
+</div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Project preview">
+  <div class="mbox glass">
+    <div class="mtop"><button class="back glass" id="back"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back to work</button><span class="mcount" id="mcount"></span></div>
+    <div class="mplayer" id="mplayer"><video id="mvideo" controls playsinline muted loop></video></div>
+    <div class="minfo"><div><h3 id="mtitle"></h3><p id="msub"></p></div>
+      <button class="nextb glass" id="next"><div><small>Next project</small><b id="nname"></b></div><img id="nimg" alt=""></button></div>
+  </div>
+</div>
+
+<script>
+/* ===== EDIT HERE: your projects =====
+   type: "desktop" (16:9) or "phone" (9:16). Put files in /videos and /posters. */
+const PROJECTS=[
+ {title:"Slack Motion",sub:"App integrations explainer",cat:"SaaS Explainer",file:"Slack_Motion",type:"desktop"},
+ {title:"Tiimo",sub:"Character animation intro",cat:"Character Animation",file:"Tiimo",type:"desktop"},
+ {title:"Create New Agent",sub:"AI agent setup UI animation",cat:"UI Animation",file:"Creat_New_Agent",type:"desktop"},
+ {title:"Higgsfield Sound",sub:"AI product UI with sound design",cat:"UI Animation",file:"Higgsfield_Sound",type:"desktop"},
+ {title:"Spotify",sub:"Abstract motion graphics",cat:"2D Motion Graphics",file:"Spotify",type:"desktop"},
+ {title:"UI SFX",sub:"Notes app UI with sound effects",cat:"UI Animation",file:"UI_SFX",type:"desktop"},
+ {title:"iPhone Intro",sub:"iOS incoming call animation",cat:"UI Animation",file:"Iphone_Intro",type:"desktop"},
+ {title:"Mastercard S",sub:"Brand motion concept",cat:"Product & Brand Promo",file:"MarsterCard_S",type:"desktop"},
+ {title:"Brian",sub:"Mobile app animation",cat:"UI Animation",file:"Brian",type:"phone"}
+];
+const SERVICES=["Product Videos for SaaS, AI & Tech","Explainer Videos","UI Animation","Figma Storyboards","Character Animation","Professional AI Voice-Over","2D Motion Graphics"];
+const ico=(bg,c,t)=>`<svg viewBox="0 0 48 48"><rect x="2" y="2" width="44" height="44" rx="10" fill="${bg}" stroke="${c}" stroke-width="2"/><text x="24" y="31" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="21" fill="${c}">${t}</text></svg>`;
+const TOOLS=[
+ ["Figma",`<svg viewBox="0 0 38 57"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>`],
+ ["Premiere Pro",ico("#00005B","#9999FF","Pr")],
+ ["After Effects",ico("#00005B","#D291FF","Ae")],
+ ["Illustrator",ico("#330000","#FF9A00","Ai")],
+ ["Photoshop",ico("#001E36","#31A8FF","Ps")]
+];
+const $=s=>document.querySelector(s);
+/* train + chips + tools */
+$("#train").innerHTML=[...SERVICES,...SERVICES,...SERVICES,...SERVICES].map(s=>`<span class="pill">${s}</span>`).join("");
+$("#chips").innerHTML=SERVICES.map(s=>`<span class="pill">${s}</span>`).join("");
+$("#tools").innerHTML=TOOLS.map(t=>`<div class="tool glass" data-n="${t[0]}" title="${t[0]}">${t[1]}</div>`).join("");
+$("#yr").textContent=new Date().getFullYear();
+/* cards */
+const lists={desktop:[],phone:[]};
+PROJECTS.forEach(p=>{p.i=lists[p.type].length;lists[p.type].push(p)});
+for(const t in lists){
+ $("#p-"+t).innerHTML=lists[t].map((p,i)=>`<button class="card glass rv ${t==="phone"?"phone":""}" data-t="${t}" data-i="${i}" aria-label="Open ${p.title}">
+  <div class="media"><video src="${p.file}.mp4" poster="${p.file}.jpg" muted loop playsinline preload="metadata"></video>
+  <span class="live glass"><s></s>Live</span>
+  <div class="over"><span class="glass"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>View project</span></div></div>
+  <div class="meta"><h3>${p.title}</h3><p>${p.sub}</p><em>${p.cat}</em></div></button>`).join("");
+}
+/* tabs */
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));
+ document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+b.dataset.tab));
+ observe();
+});
+/* live autoplay only when visible */
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else v.pause()}),{threshold:.25});
+function observe(){document.querySelectorAll(".card video").forEach(v=>vio.observe(v))}
+observe();
+/* reveal + glow */
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target)}}),{threshold:.12});
+function reveal(){document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(el.classList.contains("card")?(i%2)*.08:0)+"s";rio.observe(el)})}
+reveal();
+document.addEventListener("pointermove",e=>{const c=e.target.closest&&e.target.closest(".card");if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty("--mx",e.clientX-r.left+"px");c.style.setProperty("--my",e.clientY-r.top+"px")});
+/* nav highlight */
+const secs=["work","about","contact"].map(id=>document.getElementById(id));
+addEventListener("scroll",()=>{let cur="";secs.forEach(s=>{if(s.getBoundingClientRect().top<200)cur=s.id});document.querySelectorAll("nav ul a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+cur))},{passive:true});
+/* modal */
+let cur={t:"desktop",i:0};const M=$("#modal"),V=$("#mvideo");
+function load(t,i){cur={t,i};const L=lists[t],p=L[i],n=L[(i+1)%L.length];
+ V.src=""+p.file+".mp4";V.poster=""+p.file+".jpg";V.muted=true;V.play().catch(()=>{});
+ $("#mplayer").classList.toggle("vert",t==="phone");
+ $("#mtitle").textContent=p.title;$("#msub").textContent=p.cat+" · "+p.sub;
+ $("#mcount").textContent=(i+1)+" / "+L.length;
+ $("#next").style.display=L.length>1?"flex":"none";
+ $("#nname").textContent=n.title;$("#nimg").src=""+n.file+".jpg"}
+function open(t,i){load(t,i);M.classList.add("open");requestAnimationFrame(()=>M.classList.add("show"));document.body.style.overflow="hidden";$("#back").focus()}
+function close(){M.classList.remove("show");V.pause();setTimeout(()=>{M.classList.remove("open");V.removeAttribute("src");V.load()},300);document.body.style.overflow=""}
+document.addEventListener("click",e=>{const c=e.target.closest(".card");if(c)open(c.dataset.t,+c.dataset.i)});
+$("#back").onclick=close;M.addEventListener("click",e=>{if(e.target===M)close()});
+const step=d=>{const L=lists[cur.t];load(cur.t,(cur.i+d+L.length)%L.length)};
+$("#next").onclick=()=>step(1);
+addEventListener("keydown",e=>{if(!M.classList.contains("open"))return;if(e.key==="Escape")close();if(e.key==="ArrowRight")step(1);if(e.key==="ArrowLeft")step(-1)});
+</script>
+</body>
+</html>
